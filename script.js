@@ -13,13 +13,33 @@
     'use strict';
 
     //Modificable Variables
-    var AddBalance = 5000;
+    var AddBalance = 10000;
+    var NewCGPA = 2.75;
+    var NewCredits = 47;
 
 
-    var OldBalanceString = document.getElementById('ctl00_MainContainer_FI_CurrentBalance').innerHTML;
-    var filteredBalanceString = OldBalanceString.replace(" Tk.", "");
-    var OldBalance = numberWithoutCommas(filteredBalanceString);
-    var NewBalance = OldBalance + AddBalance;
+
+
+    //If it isn't "undefined" and it isn't "null", then it exists.
+    var HomepageBalanceElement = document.getElementById('ctl00_MainContainer_FI_CurrentBalance');
+    var AccountsPageBalanceElement = document.getElementById('ctl00_MainContainer_txt_online_amount');
+
+    if(typeof(HomepageBalanceElement) != 'undefined' && HomepageBalanceElement != null){
+        //alert('Element exists!');
+        var OldBalanceString = document.getElementById('ctl00_MainContainer_FI_CurrentBalance').innerHTML;
+        var filteredBalanceString = OldBalanceString.replace(" Tk.", "");
+        var OldBalance = numberWithoutCommas(filteredBalanceString);
+        var NewBalance = OldBalance + AddBalance;
+    } else if(typeof(AccountsPageBalanceElement) != 'undefined' && AccountsPageBalanceElement != null){
+        //alert('Element does not exist!');
+        var OldBalanceString = document.getElementById('ctl00_MainContainer_txt_online_amount').innerHTML;
+        var filteredBalanceString = OldBalanceString.replace(" Tk.", "");
+        var OldBalance = numberWithoutCommas(filteredBalanceString);
+        var NewBalance = OldBalance + AddBalance;
+    }
+
+
+
 
     //Number Comma Separator
     function numberWithCommas(x) {
@@ -34,6 +54,26 @@
 
     //Homepage Account Balance Check
     document.getElementById('ctl00_MainContainer_FI_CurrentBalance').innerHTML = numberWithCommas(NewBalance)+' Tk.';
+    //Homepage CGPA Check
+    document.getElementById('ctl00_MainContainer_Status_CGPA').innerHTML = NewCGPA;
+    //Homepage Completed Credit Check
+    document.getElementById('ctl00_MainContainer_Status_CompletedCr').innerHTML = NewCredits;
+
+
+    var WebURL = (window.location.href);
+    WebURL = WebURL.split('?mmi=')[0];
+    console.log(WebURL);
+
+    var filteredBalanceString = OldBalanceString.replace(" Tk.", "");
+
+    //AccountsPage Online Amount Payment Check
+    setTimeout(document.getElementById('ctl00_MainContainer_txt_online_amount').value = "13143654365574", 1000);
+
+
+
+
+
+
 
 
 })();
