@@ -16,6 +16,7 @@
     var AddBalance = 10000; //Add More balance
     var NewCGPA = 2.75; //Reset CGPA
     var NewCredits = 47; //Reset Credits
+    var paidStatus = "no";
 
     //Ektu Credits
     console.log('UCAM Modifier - Written by Tawsif Torabi');
@@ -25,6 +26,8 @@
 
 
 
+if(paidStatus == "no"){
+    console.log("The Bill is not Paid, CODE RED!");
 
     let OldBalanceString, filteredBalanceString, OldBalance, NewBalance = null;
     //Balance Elements for homepage and accounts page
@@ -68,7 +71,12 @@
         document.getElementById('ctl00_MainContainer_txtBalance').value = NewBalance+".00";
         var totalfee = parseInt(document.getElementById('ctl00_MainContainer_txtTotalFee').value);
         document.getElementById('ctl00_MainContainer_txtTotalFee').value = totalfee + AddBalance;
+        document.getElementById('ctl00_MainContainer_txtTotalFee').value = document.getElementById('ctl00_MainContainer_txtTotalFee').value+".00";
     }
+
+} else if(paidStatus == "yes"){
+    console.log("The Bill is Paid, Situation Changed");
+}
 
 
 
