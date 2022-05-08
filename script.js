@@ -1,9 +1,9 @@
 // ==UserScript==
-// @name         UCAM Homepage Modifier
+// @name         TellMeWhy
 // @namespace    http://tampermonkey.net/
 // @version      0.1
-// @description  try to take over the world!
-// @author       You
+// @description  Having Pera lying to your dad? Here it is!
+// @author       NUNU
 // @match        *://ucam.uiu.ac.bd/*
 // @icon         https://www.google.com/s2/favicons?domain=ac.bd
 // @grant        none
@@ -13,13 +13,13 @@
     'use strict';
 
     //Modificable Variables
-    var AddBalance = 10000; //Add More balance
+    var AddBalance = 0; //Add More balance
     var NewCGPA = 2.75; //Reset CGPA
     var NewCredits = 47; //Reset Credits
     var paidStatus = "no";
 
     //Ektu Credits
-    console.log('UCAM Modifier - Written by Tawsif Torabi');
+    console.log('UCAM Modifier - Written by NUNU');
     console.log('Check on Github - ');
     console.log('https://github.com/TawsifTorabi/TellMeWhy/');
 
